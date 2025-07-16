@@ -1,962 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    Zameen Clone
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    #search-toggle button {
-      transition: all 0.2s ease;
-    }
-
-    #search-toggle button:last-child {
-      border-right: none;
-      /* Remove right border for the last button */
-    }
-
-    #search-toggle button:hover {
-      background-color: #f0f0f0;
-      /* Light gray hover effect for inactive buttons */
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Scrollbar for horizontal scroll sections */
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
-</head>
-
-<body class="bg-white text-gray-800">
-  <header class="bg-[#2bb54c] text-white text-sm">
-    <div class="max-w-[1280px] mx-auto flex items-center justify-between px-4 py-1">
-      <div class="flex items-center space-x-6">
-        <a class="hover:underline" href="#">
-          Properties
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zameen Real Estate Portal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/icons/logo.png" />
+    <style>
+      .hero {
+        background: url("assets/images/hero/karachi-skyline.jpg") center/cover
+          no-repeat;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        position: relative;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+      }
+      .category-icon {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+      .partner-logo {
+        max-height: 60px;
+        margin: 0 20px;
+      }
+      /* Increase logo and navbar size */
+      .navbar {
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        font-size: 1.2rem;
+      }
+      .navbar-brand img {
+        width: 100px !important;
+        height: auto;
+      }
+      .navbar-nav .nav-link {
+        margin-right: 1.2rem;
+        font-weight: 600;
+        color: #222 !important;
+        transition: color 0.2s, background 0.2s;
+        border-radius: 0.3rem;
+        padding: 0.5rem 1rem;
+      }
+      .navbar-nav .nav-link:last-child {
+        margin-right: 0;
+      }
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link:focus,
+      .navbar-nav .nav-link:hover {
+        color: #fff !important;
+        background: #198754;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/icons/logo.png"
+            alt="Logo"
+            width="100"
+            class="me-2"
+          />Zameen Portal
         </a>
-        <a class="hover:underline" href="#">
-          Plot Finder
-        </a>
-        <a class="hover:underline" href="society-maps.html">
-          Area Guides
-        </a>
-        <a class="hover:underline" href="#">
-          Blog
-        </a>
-        <a class="hover:underline" href="#">
-          Maps
-        </a>
-        <a class="hover:underline" href="#">
-          Tools
-        </a>
-        <a class="hover:underline" href="#">
-          More
-        </a>
-      </div>
-      <div class="flex items-center space-x-4 text-xs">
-        <a class="hover:underline" href="#">
-          Property ID
-        </a>
-        <a href="add-property.html">
-          <button class="bg-white text-[#2bb54c] rounded px-3 py-1 text-xs font-semibold hover:bg-gray-100">
-            Add Property
-          </button>
-        </a>
-        <button aria-label="Search" class="hover:bg-[#27a143] p-1 rounded">
-          <i class="fas fa-search">
-          </i>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="login.html">
-          <button aria-label="User" class="hover:bg-[#27a143] p-1 rounded">
-            <i class="fas fa-user">
-            </i>
-          </button>
-        </a>
-        <button aria-label="Notifications" class="hover:bg-[#27a143] p-1 rounded">
-          <i class="fas fa-bell">
-          </i>
-        </button>
-        <button aria-label="Menu" class="hover:bg-[#27a143] p-1 rounded">
-          <i class="fas fa-bars">
-          </i>
-        </button>
-      </div>
-    </div>
-  </header>
-  <nav class="bg-white border-b border-gray-200 sticky top-0 z-30">
-    <div class="max-w-[1280px] mx-auto flex items-center justify-between px-4 py-3">
-      <div id="nav-logo-container">
-      </div>
-      <ul class="hidden md:flex space-x-6 text-sm font-semibold text-gray-700">
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            Buy
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            Rent
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            New Projects
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            Commercial
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            Plots
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            Agents
-          </a>
-        </li>
-        <li>
-          <a class="hover:text-[#2bb54c]" href="#">
-            News/Prices
-          </a>
-        </li>
-      </ul>
-      <button aria-label="User menu" class="md:hidden text-gray-700 hover:text-[#2bb54c] text-xl">
-        <i class="fas fa-bars">
-        </i>
-      </button>
-    </div>
-  </nav>
-  <section id="hero-section" class="relative w-full h-[320px] md:h-[400px] lg:h-[480px]">
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Browse Properties
-    </h3>
-    <div id="browse-properties-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Explore more on Zameen
-    </h3>
-    <div id="explore-zameen-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 text-xs text-center">
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Recent Searches
-    </h3>
-    <div class="flex flex-col sm:flex-row gap-6">
-      <div class="border border-gray-200 rounded p-4 flex-1">
-        <h4 class="text-[#2bb54c] font-semibold mb-2">
-          Plots for Sale
-        </h4>
-        <p class="text-xs text-gray-600 mb-1">
-          Karachi
-        </p>
-        <p class="text-xs text-gray-600 mb-1">
-          DHA Phase 6
-        </p>
-        <p class="text-xs text-gray-600">
-          5 Marla
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded p-4 flex-1">
-        <h4 class="text-[#2bb54c] font-semibold mb-2">
-          Houses for Sale
-        </h4>
-        <p class="text-xs text-gray-600 mb-1">
-          Lahore
-        </p>
-        <p class="text-xs text-gray-600 mb-1">
-          Model Town
-        </p>
-        <p class="text-xs text-gray-600">
-          10 Marla
-        </p>
-      </div>
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Viewed Properties
-    </h3>
-    <div id="property-listings" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Titanium Agencies
-    </h3>
-    <div id="titanium-agencies-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 items-center">
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10 bg-blue-50 rounded-lg">
-    <div class="flex items-center justify-between mb-6">
-      <h3 class="text-lg font-semibold">
-        Zameen Projects
-      </h3>
-      <button class="bg-red-500 text-white text-xs font-semibold rounded-full px-3 py-1">
-        Trending
-      </button>
-      <a class="text-sm text-[#2bb54c] font-semibold hover:underline" href="#">
-        View All
-      </a>
-    </div>
-    <div id="zameen-projects-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10" id="get-the-app-section">
-    <!-- Content for "Get the Zameen App" will be populated here by JavaScript -->
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Zameen Community
-    </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 text-xs text-gray-700">
-      <div class="border border-gray-200 rounded p-3">
-        <p class="font-semibold mb-1">
-          WCA: A new era in Karachi's real estate
-        </p>
-        <p>
-          17 Oct, 2023
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded p-3">
-        <p class="font-semibold mb-1">
-          PKR 4.5 billion project launched in Lahore
-        </p>
-        <p>
-          15 Oct, 2023
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded p-3">
-        <p class="font-semibold mb-1">
-          New residential complex in Islamabad
-        </p>
-        <p>
-          12 Oct, 2023
-        </p>
-      </div>
-      <div class="border border-gray-200 rounded p-3 relative">
-        <p class="font-semibold mb-1">
-          Upcoming commercial hub in Karachi
-        </p>
-        <p>
-          10 Oct, 2023
-        </p>
-        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-semibold uppercase px-2 py-0.5 rounded">
-          New
-        </span>
-      </div>
-      <div class="border border-gray-200 rounded p-3">
-        <p class="font-semibold mb-1">
-          Buying property tips for first-timers
-        </p>
-        <p>
-          08 Oct, 2023
-        </p>
-      </div>
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Popular Locations
-    </h3>
-    <div class="flex flex-col sm:flex-row items-center justify-between mb-6 space-y-4 sm:space-y-0">
-      <button aria-current="page" class="text-[#2bb54c] font-semibold border-b-2 border-[#2bb54c] pb-1">
-        For Sale
-      </button>
-      <button class="text-gray-500 font-semibold border-b-2 border-transparent pb-1">
-        To Rent
-      </button>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-gray-700">
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Plots
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA Lahore (7,945)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town (3,711)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Park View City (2,390)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Orchard (2,261)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town (2,044)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Valencia (1,993)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Canal Park Housing (1,928)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA Defence (774)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Plots
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town (3,256)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA Defence (1,875)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Gulshan Town (1,541)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA City Karachi (1,083)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town Karachi (1,061)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Gulshan-e-Jamal (326)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Malir (157)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Plots
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA Lahore (4,602)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town (2,252)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Gulshan Town (2,091)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA City Karachi (1,666)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Park View City (1,268)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in Bahria Town (1,147)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Plots for sale in DHA Defence (1,125)
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 text-xs text-gray-700">
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Flats
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Gulberg (1,945)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Askari (1,848)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Garden Town (1,609)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in DHA Defence (1,205)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Faisal Town (910)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Model Town (504)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Flats
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in DHA Defence (3,679)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Gulshan-e-Iqbal (1,874)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Clifton (1,470)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Malir (1,204)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in North Nazimabad (1,104)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Korangi (1,002)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Jamshed Town (622)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Flats
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in F-10 (1,268)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in F-11 (1,216)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in F-7 (1,072)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in G-10 (1,041)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in G-11 (1,020)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in I-8 (1,010)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in I-9 (1,000)
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 text-xs text-gray-700">
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Houses
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in DHA Defence (6,834)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Askari (2,534)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Park View City (1,071)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Bahria Town (1,023)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Model Town (910)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Garden Town (855)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Johar Town (504)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Houses
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in DHA Defence (3,679)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Gulshan-e-Iqbal (1,874)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Clifton (1,470)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Malir (1,204)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in North Nazimabad (1,104)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Korangi (1,002)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Jamshed Town (622)
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">
-          Most Popular Locations for Houses
-        </h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in DHA Defence (2,932)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in I-8 (1,070)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in F-10 (1,067)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in G-10 (1,041)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in F-7 (1,020)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in I-9 (1,010)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in I-8 (1,000)
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-10 text-xs text-gray-700">
-      <div>
-        <h4 class="font-semibold mb-2">
-          Popular Cities to Buy Properties
-        </h4>
-        <h5 class="font-semibold mb-1">
-          Houses
-        </h5>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Lahore (35,071)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Karachi (11,599)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Islamabad (10,021)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Rawalpindi (9,459)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Multan (2,731)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Faisalabad (2,294)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Gujranwala (1,642)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sialkot (1,203)
-            </a>
-          </li>
-        </ul>
-        <a class="text-[#2bb54c] font-semibold hover:underline" href="#">
-          View All Cities
-        </a>
-      </div>
-      <div>
-        <h5 class="font-semibold mb-1">
-          Houses
-        </h5>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sialkot (707)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sargodha (520)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sukkur (512)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Abbottabad (507)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sahiwal (491)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Sargodha (491)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Houses for sale in Gujrat (31)
-            </a>
-          </li>
-        </ul>
-        <a class="text-[#2bb54c] font-semibold hover:underline" href="#">
-          View All Cities
-        </a>
-      </div>
-      <div>
-        <h5 class="font-semibold mb-1">
-          Flats and Apartments
-        </h5>
-        <ul class="list-disc list-inside space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Karachi (11,203)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Islamabad (9,591)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Lahore (5,431)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Rawalpindi (900)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Faisalabad (800)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Multan (700)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Hyderabad (612)
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Flats for sale in Gujranwala (612)
-            </a>
-          </li>
-        </ul>
-        <a class="text-[#2bb54c] font-semibold hover:underline" href="#">
-          View All Cities
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="max-w-[1280px] mx-auto px-4 py-10">
-    <h3 class="text-lg font-semibold mb-6">
-      Our Home Partners
-    </h3>
-    <div id="home-partners-container" class="border border-gray-200 rounded p-6 flex items-center justify-center">
-    </div>
-  </section>
-  <footer class="bg-gray-900 text-gray-400 text-xs">
-    <div class="max-w-[1280px] mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
-        <h4 class="text-white font-semibold mb-3">
-          Company
-        </h4>
-        <ul class="space-y-1">
-          <li>
-            <a class="hover:underline" href="about-us.html">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="contact-us.html">
-              Contact Us
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Jobs
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Advertise with Us
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="terms of use.html">
-              Terms Of Use
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-3">
-          Connect
-        </h4>
-        <ul class="space-y-1">
-          <li>
-            <a class="hover:underline" href="#">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              News
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="#">
-              Forum
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="add-property.html">
-              Add Property
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-3">
-          Head Office
-        </h4>
-        <address class="not-italic space-y-1">
-          <p>
-            Plot # 67, Street 4, WAPDA Town, Lahore
-          </p>
-          <p>
-            Call: +92 42 111 111 111
-          </p>
-          <p>
-            Mon to Sat 9:00 AM to 5:00 PM
-          </p>
-          <p>
-            Email: info@zameen.com
-          </p>
-        </address>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-3">
-          Roshan Digital Account
-        </h4>
-        <p>
-          Open your account with Zameen
-        </p>
-        <div class="flex space-x-4 mt-4">
-          <a target="_blank" aria-label="Facebook" class="hover:text-white" href="https://www.facebook.com/ZameenPK">
-            <i class="fab fa-facebook-f text-lg">
-            </i>
-          </a>
-          <a target="_blank" aria-label="Instagram" class="hover:text-white" href="https://www.instagram.com/zameenpk">
-            <i class="fab fa-instagram text-lg">
-            </i>
-          </a>
-          <a target="_blank" aria-label="YouTube" class="hover:text-white"
-            href="https://www.youtube.com/channel/UCd5zTrqwM1lSd1KyeEZcswA">
-            <i class="fab fa-youtube text-lg">
-            </i>
-          </a>
-          <a target="_blank" aria-label="LinkedIn" class="hover:text-white"
-            href="https://pk.linkedin.com/company/zameen-com">
-            <i class="fab fa-linkedin-in text-lg">
-            </i>
-          </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listings.html">Buy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="add-property.html">Add Property</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="agents.html">Agents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact-us.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sign-up.html">Sign Up</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="border-t border-gray-700 text-center py-4">
-      <p>
-        © Copyright 2023 Zameen.com. All Rights Reserved.
-      </p>
-    </div>
-  </footer>
-  <button aria-label="Back to top"
-    class="fixed bottom-6 right-6 bg-gray-900 text-white p-3 rounded-full shadow-lg hover:bg-[#2bb54c] transition-colors hidden"
-    id="backToTop">
-    <i class="fas fa-chevron-up">
-    </i>
-  </button>
-  <script type="module" src="data.js"></script>
-  <script type="module" src="homepage.js"></script>
+    </nav>
 
-</body>
+    <!-- Hero Section -->
+    <section class="hero position-relative">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content py-5">
+        <h1 class="display-4 fw-bold mb-3">
+          Find Your Dream Property in Pakistan
+        </h1>
+        <p class="lead mb-4">
+          Buy, sell, or rent properties with ease and confidence.
+        </p>
+        <form class="row g-2 justify-content-center">
+          <div class="col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by city, area, or project..."
+            />
+          </div>
+          <div class="col-md-2">
+            <select class="form-select">
+              <option selected>Property Type</option>
+              <option>House</option>
+              <option>Plot</option>
+              <option>Apartment</option>
+              <option>Commercial</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-success w-100">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
 
+    <!-- Featured Properties -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="mb-4 text-center">Featured Properties</h2>
+        <div class="row g-4">
+          <!-- Property Card Example -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="assets/images/projects/boulevard-heights.jpg"
+                class="card-img-top"
+                alt="Boulevard Heights"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Boulevard Heights</h5>
+                <p class="card-text">PKR 2.5 Crore • DHA Phase 8, Karachi</p>
+                <a href="property-details.html" class="btn btn-primary"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="assets/images/projects/dha-phase-8.jpg"
+                class="card-img-top"
+                alt="DHA Phase 8"
+              />
+              <div class="card-body">
+                <h5 class="card-title">DHA Phase 8 Villa</h5>
+                <p class="card-text">PKR 3.1 Crore • DHA Phase 8, Karachi</p>
+                <a href="property-details.html" class="btn btn-primary"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="assets/images/projects/pine-city-villa.jpg"
+                class="card-img-top"
+                alt="Pine City Villa"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Pine City Villa</h5>
+                <p class="card-text">PKR 1.8 Crore • Pine City, Karachi</p>
+                <a href="property-details.html" class="btn btn-primary"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Add more property cards as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore by Category -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="mb-4 text-center">Explore by Category</h2>
+        <div class="row text-center g-4">
+          <div class="col-6 col-md-3">
+            <img
+              src="assets/images/explore-icons/plot-finder-icon.jpg"
+              class="category-icon"
+              alt="Plots"
+            />
+            <h6>Plots</h6>
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="assets/images/explore-icons/home-loan-icon.jpg"
+              class="category-icon"
+              alt="Homes"
+            />
+            <h6>Homes</h6>
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="assets/images/explore-icons/property-index-icon.jpg"
+              class="category-icon"
+              alt="Apartments"
+            />
+            <h6>Apartments</h6>
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="assets/images/explore-icons/construction-cost-icon.jpg"
+              class="category-icon"
+              alt="Commercial"
+            />
+            <h6>Commercial</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners/Agencies -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="mb-4 text-center">Our Partners</h2>
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+          <img
+            src="assets/images/partners/home-partners-logo.jpg"
+            class="partner-logo"
+            alt="Partner 1"
+          />
+          <img
+            src="assets/images/agency-logos/al-razaq-real-estate-logo.jpg"
+            class="partner-logo"
+            alt="Al Razaq"
+          />
+          <img
+            src="assets/images/agency-logos/aw-enterprises-logo.jpg"
+            class="partner-logo"
+            alt="AW Enterprises"
+          />
+          <img
+            src="assets/images/agency-logos/bright-homes-realty-logo.jpg"
+            class="partner-logo"
+            alt="Bright Homes"
+          />
+          <!-- Add more partner logos as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <h5>Zameen Portal</h5>
+            <p>
+              Find your dream property in Pakistan. Buy, sell, or rent with
+              confidence.
+            </p>
+          </div>
+          <div class="col-md-3 mb-3 mb-md-0">
+            <h6>Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="about-us.html" class="text-white">About Us</a></li>
+              <li><a href="contact-us.html" class="text-white">Contact</a></li>
+              <li>
+                <a href="terms of use.html" class="text-white">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h6>Contact</h6>
+            <p>Email: info@zameenportal.com<br />Phone: +92 300 0000000</p>
+            <div>
+              <a href="#" class="text-white me-2"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-white me-2"
+                ><i class="bi bi-twitter"></i
+              ></a>
+              <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          &copy; 2024 Zameen Portal. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
