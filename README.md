@@ -45,9 +45,8 @@ Open the `index.html` in your browser or serve it via a local HTTP server to exp
 ### 🛠 Technologies
 
 * HTML5
-* CSS3
-* Bootstrap 5
-* TailwindCSS
+* CSS3 (Bootstrap 5)
+* Tailwind CSS
 * JavaScript (ES6+)
 * [Git](https://git-scm.com/) for version control
 
@@ -93,17 +92,21 @@ web-project/
 
 2. **Serve files**
 
-   For full ES6 module support, use a local HTTP server. Example:
+   Since this is a purely front‑end project, you only need a static file server to view it in your browser. Here are a few options:
 
-   ```bash
-   # Python 3
-   python3 -m http.server 8000
+   * **Node.js** (using `http-server`):
 
-   # Node.js
-   npx http-server .
-   ```
+     ```bash
+     npx http-server .
+     ```
+   * **VS Code Live Server** extension:
 
----
+     * Install the "Live Server" extension in VS Code and click "Go Live".
+   * **Python (optional)**: Python’s built‑in HTTP server can also serve static files, but it’s just one choice—Python isn’t used by the project itself.
+
+     ```bash
+     python3 -m http.server 8000
+     ```
 
 ### 🚀 Usage
 
