@@ -1,6 +1,6 @@
 ## Web Project - Zameen.com Front-End Clone
 
-A pixel-perfect front-end clone of Zameen.com built for academic purposes demonstrating modular design, responsiveness, and client-side data management.
+A pixel-perfect front-end clone of Zameen.com built for as a group semester project demonstrating modular design, responsiveness, and client-side data management.
 
 ---
 
