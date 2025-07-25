@@ -1,0 +1,1536 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zameen Clone
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-gray-900">
+  <!-- Top Bar -->
+  <div class="bg-[#1e7d32] text-white text-xs sm:text-sm">
+   <div class="max-w-[1280px] mx-auto flex justify-between items-center px-3 sm:px-6 py-1">
+    <div class="flex space-x-4 items-center">
+     <a class="hover:underline" href="#">
+      Properties
+     </a>
+     <a class="hover:underline" href="#">
+      Plot Tracker
+     </a>
+     <a class="hover:underline" href="society-maps.html">
+      Area Guides
+     </a>
+     <a class="hover:underline" href="#">
+      Blogs
+     </a>
+     <a class="hover:underline" href="#">
+      Maps
+     </a>
+     <a class="hover:underline" href="#">
+      Tools
+     </a>
+     <a class="hover:underline" href="#">
+      More
+     </a>
+    </div>
+    <div class="flex items-center space-x-3">
+     <a class="hover:underline" href="login.html">
+      Login
+     </a>
+     <a href="add-property.html">
+       <button class="bg-[#1e7d32] border border-white rounded text-white text-xs sm:text-sm px-3 py-1 hover:bg-white hover:text-[#1e7d32] transition">
+         + Add Property
+        </button>
+      </a>
+    </div>
+   </div>
+  </div>
+  <!-- Header Nav -->
+  <header class="bg-[#1e7d32]">
+   <div class="max-w-[1280px] mx-auto flex items-center justify-between px-3 sm:px-6 py-3">
+    <a class="flex items-center space-x-2" href="#">
+     <img alt="Zameen logo in white and green" class="h-10 w-auto" height="40" src="https://storage.googleapis.com/a1aa/image/472eb677-92b9-4d10-4a62-ea940442fc5c.jpg" width="120"/>
+    </a>
+    <nav class="hidden md:flex space-x-6 text-white font-semibold text-sm">
+     <a class="hover:underline" href="#">
+      Buy
+     </a>
+     <a class="hover:underline" href="#">
+      Rent
+     </a>
+     <a class="hover:underline" href="#">
+      New Projects
+     </a>
+     <a class="hover:underline" href="agents.html">
+      Agents
+     </a>
+     <a class="hover:underline" href="#">
+      How Projects
+     </a>
+    </nav>
+    <div class="hidden md:flex space-x-4 items-center text-white text-sm">
+     <a class="hover:underline" href="#">
+      Search
+     </a>
+     <a class="hover:underline" href="#">
+      Help
+     </a>
+    </div>
+    <button aria-label="Toggle menu" class="md:hidden text-white text-2xl focus:outline-none" id="mobile-menu-button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+   </div>
+   <!-- Mobile menu -->
+   <nav class="hidden bg-[#1e7d32] text-white px-3 pb-3 space-y-2 md:hidden" id="mobile-menu">
+    <a class="block py-1 hover:underline" href="#">
+     Buy
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     Rent
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     New Projects
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     Agents
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     How Projects
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     Search
+    </a>
+    <a class="block py-1 hover:underline" href="#">
+     Help
+    </a>
+   </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative">
+   <img alt="City skyline with waterfront and modern buildings during sunset" class="w-full h-[400px] object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/082df1ee-c0ee-4620-caee-19119f5573c1.jpg" width="1280"/>
+   <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-4">
+    <h1 class="text-white text-center text-lg sm:text-2xl font-semibold mb-4 max-w-xl">
+     Search properties for sale in Pakistan
+    </h1>
+    <form aria-label="Property search form" class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 w-full max-w-4xl">
+     <div class="flex space-x-2 w-full sm:w-auto">
+      <button class="bg-white text-[#1e7d32] font-semibold rounded-l px-4 py-2 border border-r-0 border-gray-300" type="button">
+       Buy
+      </button>
+      <button class="bg-[#1e7d32] text-white font-semibold rounded-r px-4 py-2 border border-gray-300" type="button">
+       Rent
+      </button>
+      <button class="bg-[#1e7d32] text-white font-semibold rounded-r px-4 py-2 border border-gray-300" type="button">
+       Projects
+      </button>
+     </div>
+     <select aria-label="Select city" class="rounded border border-gray-300 px-3 py-2 w-full sm:w-40">
+      <option>
+       City
+      </option>
+      <option>
+       Karachi
+      </option>
+      <option>
+       Lahore
+      </option>
+      <option>
+       Islamabad
+      </option>
+     </select>
+     <select aria-label="Select property type" class="rounded border border-gray-300 px-3 py-2 w-full sm:w-40">
+      <option>
+       Location
+      </option>
+      <option>
+       Gulshan
+      </option>
+      <option>
+       Clifton
+      </option>
+      <option>
+       F-10
+      </option>
+     </select>
+     <input aria-label="Search input" class="rounded border border-gray-300 px-3 py-2 w-full sm:flex-1" placeholder="Search by area, project, or keyword" type="text"/>
+     <button class="bg-[#1e7d32] text-white font-semibold rounded px-6 py-2 hover:bg-[#14521a] transition w-full sm:w-auto" type="submit">
+      Search
+     </button>
+    </form>
+    <div class="text-white text-xs mt-2 max-w-xl text-center">
+     <a class="underline hover:text-gray-300" href="#">
+      More Options
+     </a>
+     |
+     <a class="underline hover:text-gray-300" href="#">
+      Price
+     </a>
+     |
+     <a class="underline hover:text-gray-300" href="#">
+      Property Type
+     </a>
+     |
+     <a class="underline hover:text-gray-300" href="#">
+      Property Status
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Browse Properties -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Browse Properties
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Homes -->
+    <div aria-label="Homes property category" class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition">
+     <div class="flex items-center space-x-2 mb-4">
+      <i class="fas fa-home text-[#1e7d32] text-xl">
+      </i>
+      <h3 class="font-semibold text-[#1e7d32] text-lg">
+       Homes
+      </h3>
+     </div>
+     <div class="flex space-x-6 text-sm text-gray-600">
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Popular
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          5 Marla Houses
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          10 Marla Houses
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          1 Kanal Houses
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Type
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Flats
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Lower Portion
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Upper Portion
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Area Size
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Small
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Medium
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Large
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <!-- Plots -->
+    <div aria-label="Plots property category" class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition">
+     <div class="flex items-center space-x-2 mb-4">
+      <i class="fas fa-map-marker-alt text-[#1e7d32] text-xl">
+      </i>
+      <h3 class="font-semibold text-[#1e7d32] text-lg">
+       Plots
+      </h3>
+     </div>
+     <div class="flex space-x-6 text-sm text-gray-600">
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Popular
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          5 Marla
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          10 Marla
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          1 Kanal
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Type
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Residential
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Commercial
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Agricultural
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Area Size
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Small
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Medium
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Large
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <!-- Commercial -->
+    <div aria-label="Commercial property category" class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition">
+     <div class="flex items-center space-x-2 mb-4">
+      <i class="fas fa-building text-[#1e7d32] text-xl">
+      </i>
+      <h3 class="font-semibold text-[#1e7d32] text-lg">
+       Commercial
+      </h3>
+     </div>
+     <div class="flex space-x-6 text-sm text-gray-600">
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Popular
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Small Offices
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          New Offices
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Commercial Shops
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Type
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Offices
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Shops
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Warehouses
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold text-gray-900 mb-1">
+        Area Size
+       </h4>
+       <ul class="space-y-1">
+        <li>
+         <a class="hover:underline" href="#">
+          Small
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Medium
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#">
+          Large
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Explore more on Zameen -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Explore more on Zameen
+   </h2>
+   <div aria-label="Explore more options" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 text-xs sm:text-sm">
+    <a class="flex flex-col items-center bg-yellow-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing New Projects with a building and plus sign" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/759ea2ac-e8a5-492a-ed5a-6fa0fd7d9903.jpg" width="40"/>
+     <span class="text-center">
+      New Projects
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-blue-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Construction Cost Calculator with a calculator and ruler" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/9a9befd3-f621-41fe-6379-8d4b8673a9b2.jpg" width="40"/>
+     <span class="text-center">
+      Construction Cost Calculator
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-green-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Home Loan Calculator with a house and calculator" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/3cd2b362-3a23-46bb-2bca-3fd08c224d96.jpg" width="40"/>
+     <span class="text-center">
+      Home Loan Calculator
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-red-100 rounded-lg p-3 hover:shadow-md transition" href="society-maps.html">
+     <img alt="Icon representing Area Guides with a map and location pin" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/b317e4a7-a06b-4fdf-7694-d76971332f13.jpg" width="40"/>
+     <span class="text-center">
+      Area Guides
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-green-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Plot Finder with a magnifying glass and plot" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/095b9709-b8c0-4b99-7610-7b87d64f8558.jpg" width="40"/>
+     <span class="text-center">
+      Plot Finder
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-purple-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Property Index with a bar chart" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/153315b4-b68a-424e-817f-9323cff3341b.jpg" width="40"/>
+     <span class="text-center">
+      Property Index
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-teal-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Area Unit Converter with a ruler and arrows" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/a65258c7-9cc9-4ba7-269d-50bfa59610a5.jpg" width="40"/>
+     <span class="text-center">
+      Area Unit Converter
+     </span>
+    </a>
+    <a class="flex flex-col items-center bg-purple-100 rounded-lg p-3 hover:shadow-md transition" href="#">
+     <img alt="Icon representing Property Trends with a line graph" class="mb-2" height="40" src="https://storage.googleapis.com/a1aa/image/43f41b95-bfb5-4ebe-37d1-10ec6a12247f.jpg" width="40"/>
+     <span class="text-center">
+      Property Trends
+     </span>
+    </a>
+   </div>
+  </section>
+  <!-- Recent Searches -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Recent Searches
+   </h2>
+   <div class="flex flex-wrap gap-4 text-sm text-[#1e7d32]">
+    <a class="flex items-center space-x-2 hover:underline" href="#">
+     <i class="fas fa-search">
+     </i>
+     <span>
+      Homes for Sale
+     </span>
+    </a>
+    <a class="flex items-center space-x-2 hover:underline" href="#">
+     <i class="fas fa-search">
+     </i>
+     <span>
+      Houses for Sale
+     </span>
+    </a>
+    <a class="flex items-center space-x-2 hover:underline" href="#">
+     <i class="fas fa-search">
+     </i>
+     <span>
+      Houses for Sale
+     </span>
+    </a>
+    <a class="flex items-center space-x-2 hover:underline" href="#">
+     <i class="fas fa-search">
+     </i>
+     <span>
+      Houses for Sale
+     </span>
+    </a>
+    <button aria-label="Next recent searches" class="ml-auto text-[#1e7d32] hover:text-[#14521a]">
+     <i class="fas fa-chevron-right">
+     </i>
+    </button>
+   </div>
+  </section>
+  <!-- Viewed Properties -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Viewed Properties
+   </h2>
+   <div class="flex space-x-4 mb-6">
+    <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded">
+     All Property
+    </span>
+    <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded">
+     All New Home
+    </span>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700">
+    <div>
+     <p class="font-semibold">
+      PKR 13.3 Crore
+     </p>
+     <p class="text-xs text-gray-500">
+      LDA Officers Colony, LDA Officers Colony
+     </p>
+     <a class="text-[#1e7d32] hover:underline text-xs" href="#">
+      House For Sale
+     </a>
+     <div class="flex space-x-3 text-xs mt-1 text-gray-600">
+      <span>
+       <i class="fas fa-bed">
+       </i>
+       5 Beds
+      </span>
+      <span>
+       <i class="fas fa-bath">
+       </i>
+       5 Baths
+      </span>
+      <span>
+       <i class="fas fa-ruler-combined">
+       </i>
+       1 Kanal
+      </span>
+     </div>
+    </div>
+    <div>
+     <p class="font-semibold">
+      PKR 4.8 Crore
+     </p>
+     <p class="text-xs text-gray-500">
+      Bahria Town, Bahria Town
+     </p>
+     <a class="text-[#1e7d32] hover:underline text-xs" href="#">
+      House For Sale
+     </a>
+     <div class="flex space-x-3 text-xs mt-1 text-gray-600">
+      <span>
+       <i class="fas fa-bed">
+       </i>
+       3 Beds
+      </span>
+      <span>
+       <i class="fas fa-bath">
+       </i>
+       3 Baths
+      </span>
+      <span>
+       <i class="fas fa-ruler-combined">
+       </i>
+       10 Marla
+      </span>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Titanium Agencies -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Titanium Agencies
+   </h2>
+   <div class="flex flex-wrap gap-6 items-center">
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Bismark Realty logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/788ee11e-5801-4067-3bc7-620e39050cd3.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Bismark Realty
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="NM Associates logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/0b203b4e-cb8e-4b6b-6f91-f6d5ab590fe3.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       NM Associates
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Biz Salah Real Estate logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/416a5a56-37be-4be3-9571-fd070d46a570.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Biz Salah Real Estate
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Property Deals Real Estate logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/fc33c1a6-db42-43b9-819e-e6d88b2ab7ea.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Property Deals Real Estate
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Square Land Marketing logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/ce57c46e-59a3-41df-3b68-20ffde860890.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Square Land Marketing
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Planet Associates &amp; Builders logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/f26d78dd-31e8-4eea-72e4-6c31d43be8e0.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Planet Associates &amp; Builders
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Chawla Estate logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/1e74397f-65bc-4c97-aa3d-9a0316111e7f.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Chawla Estate
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <a class="flex items-center space-x-3 border border-gray-200 rounded p-3 hover:shadow-md transition w-full sm:w-auto" href="#">
+     <img alt="Zameen Associates logo" class="w-14 h-14 object-contain rounded" height="60" src="https://storage.googleapis.com/a1aa/image/449d2ff1-3916-4ab7-fd40-fd05c253a942.jpg" width="60"/>
+     <div>
+      <p class="font-semibold text-sm">
+       Zameen Associates
+      </p>
+      <p class="text-xs text-gray-500">
+       Lahore
+      </p>
+     </div>
+    </a>
+    <button aria-label="Next titanium agencies" class="ml-auto text-[#1e7d32] hover:text-[#14521a]">
+     <i class="fas fa-chevron-right">
+     </i>
+    </button>
+   </div>
+  </section>
+  <!-- Zameen Projects -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 bg-[#f0f5ff] rounded-lg">
+   <div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-semibold">
+     Zameen Projects
+    </h2>
+    <div class="flex items-center space-x-3">
+     <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded">
+      Hot
+     </span>
+     <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded">
+      Trending
+     </span>
+     <a class="text-[#1e7d32] text-sm font-semibold hover:underline" href="#">
+      View All →
+     </a>
+    </div>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Multi Business Park Islamabad, a modern commercial building with multiple floors and glass facade" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/97bc1029-0248-468b-2ac8-190b0bb779b9.jpg" width="400"/>
+     <div class="p-4">
+      <p class="text-xs text-red-600 font-semibold mb-1">
+       HOT
+      </p>
+      <h3 class="font-semibold text-sm mb-1">
+       PKR 41.73 Lakh to 3.61 Crore Multi Business Park, Islamabad
+      </h3>
+      <p class="text-xs text-gray-600 mb-2">
+       Shops, Flats
+      </p>
+      <p class="text-xs text-gray-600">
+       25 to 675 sq ft | 125 units
+      </p>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Oak Park Residence Karachi, a white modern residential building with balconies" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/8bb0bee7-f128-45dd-89a8-c32a1e72ab75.jpg" width="400"/>
+     <div class="p-4">
+      <p class="text-xs text-red-600 font-semibold mb-1">
+       HOT
+      </p>
+      <h3 class="font-semibold text-sm mb-1">
+       PKR 3 Crore Oak Park Residence, Karachi
+      </h3>
+      <p class="text-xs text-gray-600 mb-2">
+       Houses
+      </p>
+      <p class="text-xs text-gray-600">
+       2400 sq ft to 2700 sq ft
+      </p>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Metropolitan Signature Karachi, tall residential towers with balconies and glass windows" class="w-full h-48 object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/1c97dfd7-e149-4f1d-54f7-f1cb90f85cc6.jpg" width="400"/>
+     <div class="p-4">
+      <p class="text-xs text-red-600 font-semibold mb-1">
+       HOT
+      </p>
+      <h3 class="font-semibold text-sm mb-1">
+       PKR 2.46 Crore to 4.37 Crore Metropolitan Signature, Karachi
+      </h3>
+      <p class="text-xs text-gray-600 mb-2">
+       Flats
+      </p>
+      <p class="text-xs text-gray-600">
+       1250 sq ft to 2700 sq ft
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Zameen Community -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-semibold">
+     Zameen Community
+    </h2>
+    <div class="flex space-x-6 text-sm text-[#1e7d32] font-semibold">
+     <a class="hover:underline" href="#">
+      News
+     </a>
+     <a class="hover:underline" href="#">
+      Blogs
+     </a>
+     <a class="hover:underline" href="#">
+      Forums
+     </a>
+    </div>
+   </div>
+   <div class="flex flex-wrap gap-4">
+    <div class="flex items-center space-x-3 w-full sm:w-auto">
+     <img alt="News article thumbnail showing a building and text" class="w-24 h-14 object-cover rounded" height="60" src="https://storage.googleapis.com/a1aa/image/88e8bcbe-a7a1-4e62-32fc-0427c463859c.jpg" width="100"/>
+     <div>
+      <p class="text-xs text-gray-600">
+       N/A posted 4 days ago
+      </p>
+      <p class="font-semibold text-sm">
+       News article title or summary
+      </p>
+     </div>
+    </div>
+    <div class="flex items-center space-x-3 w-full sm:w-auto">
+     <img alt="News article thumbnail showing a cityscape and text" class="w-24 h-14 object-cover rounded" height="60" src="https://storage.googleapis.com/a1aa/image/94183c7c-888a-4e1e-f747-2856bb52e03e.jpg" width="100"/>
+     <div>
+      <p class="text-xs text-gray-600">
+       N/A posted 15 days ago
+      </p>
+      <p class="font-semibold text-sm">
+       News article title or summary
+      </p>
+     </div>
+    </div>
+    <div class="flex items-center space-x-3 w-full sm:w-auto">
+     <img alt="News article thumbnail showing a building and text" class="w-24 h-14 object-cover rounded" height="60" src="https://storage.googleapis.com/a1aa/image/88e8bcbe-a7a1-4e62-32fc-0427c463859c.jpg" width="100"/>
+     <div>
+      <p class="text-xs text-gray-600">
+       N/A posted 20 days ago
+      </p>
+      <p class="font-semibold text-sm">
+       News article title or summary
+      </p>
+     </div>
+    </div>
+    <div class="flex items-center space-x-3 w-full sm:w-auto">
+     <img alt="News article thumbnail showing a property and text" class="w-24 h-14 object-cover rounded" height="60" src="https://storage.googleapis.com/a1aa/image/f7b48d2c-252a-4eeb-1175-58966f70f338.jpg" width="100"/>
+     <div>
+      <p class="text-xs text-gray-600">
+       N/A posted 30 days ago
+      </p>
+      <p class="font-semibold text-sm">
+       News article title or summary
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Popular Locations -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+   <h2 class="text-lg font-semibold mb-6">
+    Popular Locations
+   </h2>
+   <div class="flex space-x-6 mb-6 text-sm font-semibold text-[#1e7d32]">
+    <button class="border-b-2 border-[#1e7d32] pb-1">
+     For Sale
+    </button>
+    <button class="text-gray-500">
+     To Rent
+    </button>
+   </div>
+   <!-- Most Popular Locations for Plots -->
+   <div class="mb-8">
+    <h3 class="font-semibold mb-3">
+     Most Popular Locations for Plots
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-gray-700">
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Model Town in DHA Lahore (5,892)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in Faisalabad Road (3,274)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in New Garden Town (2,469)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in Bahria Town (2,264)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in Johar Town (2,044)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in DHA Phase 6 (1,904)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in Central Park Housing Scheme (1,361)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plot for sale in LDA Road (1,051)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Scheme 33 (2,923)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in DHA Defence (1,767)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Gulshan Town (1,529)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in DHA City Karachi (1,298)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Bahria Town Karachi (1,024)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Korangi (1,002)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Gulistan-e-Jauhar (909)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Malir (779)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in DHA Defence Phase 6 (2,619)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Gulberg (2,083)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in F-10 (1,874)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Navy Town (1,674)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in DHA Phase 7 (1,204)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Top City 1 (1,024)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Faisalabad Road (1,023)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in DHA Phase 1 (1,018)
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- Most Popular Locations for Flats -->
+   <div class="mb-8">
+    <h3 class="font-semibold mb-3">
+     Most Popular Locations for Flats
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-gray-700">
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Bahria Town (1,928)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Anarkali (862)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Gulberg (591)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Saddar Road (552)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in DHA Defence (472)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Johar Town (370)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Gulshan-e-Iqbal (346)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Adalat Town (309)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in DHA Defence (1,926)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Gulshan-e-Iqbal Town (1,185)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Gulistan-e-Jauhar (1,119)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Saddar (989)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in North Nazimabad (672)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Nazimabad (579)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Malir (479)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Jamshed Town (450)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in DHA Defence (1,696)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Gulshan-e-Iqbal (520)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Saddar (520)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in F-7 (299)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in F-6 (299)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in F-8 (264)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in F-10 (264)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in F-11 (257)
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- Most Popular Locations for Houses -->
+   <div class="mb-8">
+    <h3 class="font-semibold mb-3">
+     Most Popular Locations for Houses
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-gray-700">
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in DHA Defence (3,982)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Bahria Town (1,813)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Parbat View City (1,266)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Rawalpindi (876)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in GT Road (652)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Central Park Housing Scheme (556)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Bahria Orchard (450)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Johar Town (410)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in DHA Phase 7 (2,607)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Sindh (2,313)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Bahria Town Karachi (1,229)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in DHA Phase 6 (1,098)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Gulshan-e-Iqbal (879)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Gulistan-e-Jauhar (704)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Malir (627)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Gulberg (603)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in DHA Defence (3,421)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in DHA Phase 6 (1,751)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in F-7 (775)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in F-8 (719)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in F-6 (719)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Bahria Golf City (492)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in F-9 (377)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in F-10 (330)
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- Popular Cities to Buy Properties -->
+   <div>
+    <h3 class="font-semibold mb-3">
+     Popular Cities to Buy Properties
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-gray-700">
+     <div>
+      <h4 class="font-semibold mb-2">
+       Houses
+      </h4>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Lahore (25,040)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Karachi (13,978)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Islamabad (10,020)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Rawalpindi (4,772)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Multan (2,281)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Gujranwala (2,136)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Sialkot (1,536)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Houses for sale in Dera Ghazi Khan (1,375)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-2">
+       Flats and Apartments
+      </h4>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Karachi (11,506)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Lahore (4,065)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Islamabad (3,644)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Rawalpindi (1,772)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Faisalabad (1,377)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Flats for sale in Multan (1,020)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-2">
+       Plots
+      </h4>
+      <ul class="space-y-1">
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Lahore (18,592)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Karachi (12,923)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Islamabad (6,619)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Rawalpindi (3,274)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Multan (2,264)
+        </a>
+       </li>
+       <li>
+        <a class="hover:underline" href="#">
+         Plots for sale in Gujranwala (1,361)
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Our Home Partners -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 bg-gray-100 rounded-lg">
+   <h2 class="text-lg font-semibold mb-6">
+    Our Home Partners
+   </h2>
+   <div class="flex justify-center">
+    <img alt="Our Home Partners logo placeholder" class="object-contain" height="60" src="https://storage.googleapis.com/a1aa/image/3f8fd8a3-b86a-4ab5-f9be-499b6362a579.jpg" width="200"/>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 text-xs sm:text-sm">
+   <div class="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div>
+     <h3 class="font-semibold mb-3 text-white">
+      Company
+     </h3>
+     <ul class="space-y-1">
+      <li>
+       <a class="hover:underline" href="about-us.html">
+        About Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="contact-us.html">
+        Contact Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Jobs
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Advertise With Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="terms of use.html">
+        Terms Of Use
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h3 class="font-semibold mb-3 text-white">
+      Connect
+     </h3>
+     <ul class="space-y-1">
+      <li>
+       <a class="hover:underline" href="#">
+        Blog
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        News
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Resources
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="add-property.html">
+        Add Property
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h3 class="font-semibold mb-3 text-white">
+      Head Office
+     </h3>
+     <address class="not-italic space-y-1 text-gray-400 text-xs">
+      <p>
+       Plot # 1, Street # 4, Sector H-9/1, Islamabad, Pakistan
+      </p>
+      <p>
+       Phone: +92 51 111 111 111
+      </p>
+      <p>
+       Monday to Sunday 9:00 AM to 6:00 PM
+      </p>
+      <p>
+       Email: info@zameen.com
+      </p>
+     </address>
+     <h3 class="font-semibold mt-6 mb-3 text-white">
+      Roshan Digital Account
+     </h3>
+     <div class="flex space-x-2">
+      <img alt="Roshan Digital Account App Store badge" class="object-contain" height="30" src="https://storage.googleapis.com/a1aa/image/3d9d9503-a218-4332-0957-ef07ea5fbee7.jpg" width="100"/>
+      <img alt="Roshan Digital Account Google Play badge" class="object-contain" height="30" src="https://storage.googleapis.com/a1aa/image/3fc83e95-0afd-4385-d40b-7137fc18d4ae.jpg" width="100"/>
+     </div>
+     <h3 class="font-semibold mt-6 mb-3 text-white">
+      Get Connected
+     </h3>
+     <div class="flex space-x-4 text-white text-lg">
+      <a aria-label="Facebook" class="hover:text-blue-600" href="https://www.facebook.com/ZameenPK">
+       <i class="fab fa-facebook-f">
+       </i>
+      </a>
+      <a aria-label="Twitter" class="hover:text-blue-400" href="https://twitter.com/ZameenProperty">
+       <i class="fab fa-twitter">
+       </i>
+      </a>
+      <a aria-label="YouTube" class="hover:text-red-600" href="https://www.youtube.com/channel/UCd5zTrqwM1lSd1KyeEZcswA">
+       <i class="fab fa-youtube">
+       </i>
+      </a>
+      <a aria-label="Instagram" class="hover:text-pink-600" href="https://www.instagram.com/zameenpk">
+       <i class="fab fa-instagram">
+       </i>
+      </a>
+      <a aria-label="LinkedIn" class="hover:text-blue-700" href="https://pk.linkedin.com/company/zameen-com">
+       <i class="fab fa-linkedin-in">
+       </i>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="text-center text-gray-500 text-xs py-4 border-t border-gray-700">
+    © Copyright 2007 - 2023 Zameen.com. All Rights Reserved
+   </div>
+  </footer>
+  <script>
+   const menuBtn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  <script src="homepage.js"></script>
+  <script src="data.js"></script>
+ </body>
+</html>
